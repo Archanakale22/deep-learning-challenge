@@ -1,0 +1,51 @@
+Overview of the Analysis
+
+The purpose of this analysis was to create a deep learning model using TensorFlow/Keras to predict whether applicants will be successful if funded by Alphabet Soup, a nonprofit organization. The model aimed to achieve at least 75% accuracy in classification.
+Results 
+
+Data Preprocessing
+
+What variable(s) are the target(s) for your model?
+
+•	The target variable is IS_SUCCESSFUL from the dataset.
+What variable(s) are the features for your model?
+•	All columns except IS_SUCCESSFUL, EIN, and NAME were used as features.
+What variable(s) should be removed from the input data because they are neither targets nor features?
+•	EIN and NAME columns were removed as they were identifiers and not useful for prediction.
+
+ Compiling, Training, and Evaluating the Model
+
+How many neurons, layers, and activation functions did you select for your neural network model, and why?
+•	The initial model had 2 hidden layers with 8 neurons in the first layer and 5 neurons in the second layer. REL activation function was used for the hidden layers and Sigmoid activation for the output layer.
+Were you able to achieve the target model performance?
+•	The model achieved approximately 73% accuracy, falling short of the 75% target.
+What steps did you take in your attempts to increase model performance?
+•	Increased the number of hidden layers.
+•	Adjusted the number of neurons in each layer.
+•	Tested different activation functions (ReLU, Tanh, etc.).
+•	Conducted feature selection and removal of irrelevant columns.
+
+Summary of Results
+
+The deep learning model achieved a respectable accuracy of around 73% in predicting the success of funding applications. 
+While this is below the 75% target, it demonstrates the model's capability to learn and make predictions based on the provided features.
+Further optimization through hyperparameter tuning and feature engineering could potentially improve the accuracy.
+Using a Different Model Approach
+
+To potentially solve the same classification problem of predicting funding success, a different model approach could be considered:
+Random Forest Classifier
+Why Random Forest?
+•	Random Forests are robust against overfitting and can handle large datasets with many features.
+•	They can capture complex relationships between features and target variable due to the ensemble of decision trees.
+•	Feature importance can be easily extracted, aiding in understanding which variables are most influential in predicting funding success.
+
+Implementation Strategy:
+•	Preprocess data similarly, ensuring all features are relevant.
+•	Train a Random Forest Classifier using default parameters initially.
+•	Perform hyperparameter tuning using techniques like grid search or randomized search to optimize model performance.
+•	Evaluate the model's accuracy, precision, recall, and F1-score to ensure it meets or exceeds the desired performance metrics.
+
+Conclusion:
+
+By employing a Random Forest Classifier, Alphabet Soup could potentially improve prediction accuracy beyond the 73% achieved with the deep learning model. 
+This approach leverages the strengths of ensemble learning and can provide insights into feature importance, aiding in better decision-making regarding funding applications.
