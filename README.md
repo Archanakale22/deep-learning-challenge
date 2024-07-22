@@ -1,64 +1,68 @@
 # deep-learning-challenge
 
-# Data Preprocessing
+Background 
 
-What variable(s) are the target(s) for your model?
+The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
 
-•	The target variable is IS_SUCCESSFUL from the dataset.
+From Alphabet Soup’s business team, you have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
 
-What variable(s) are the features for your model?
+EIN and NAME—Identification columns APPLICATION_TYPE—Alphabet Soup application type AFFILIATION—Affiliated sector of industry CLASSIFICATION—Government organization classification USE_CASE—Use case for funding ORGANIZATION—Organization type STATUS—Active status INCOME_AMT—Income classification SPECIAL_CONSIDERATIONS—Special considerations for application ASK_AMT—Funding amount requested IS_SUCCESSFUL—Was the money used effectively
 
-•	All columns except IS_SUCCESSFUL, EIN, and NAME were used as features.
+Instructions Step 1: Preprocess the Data Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
 
-What variable(s) should be removed from the input data because they are neither targets nor features?
+Start by uploading the starter file to Google Colab, then using the information we provided in the Challenge files, follow the instructions to complete the preprocessing steps.
 
-•	EIN and NAME columns were removed as they were identifiers and not useful for prediction.
+Read in the charity_data.csv to a Pandas DataFrame, and be sure to identify the following in your dataset: What variable(s) are the target(s) for your model? What variable(s) are the feature(s) for your model? Drop the EIN and NAME columns.
 
-# Compiling, Training, and Evaluating the Model
+Determine the number of unique values for each column.
 
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
+For columns that have more than 10 unique values, determine the number of data points for each unique value.
 
-•	The initial model had 2 hidden layers with 8 neurons in the first layer and 5 neurons in the second layer. ReLU activation function was used for the hidden layers and Sigmoid activation for the output layer.
+Use the number of data points for each unique value to pick a cutoff point to bin "rare" categorical variables together in a new value, Other, and then check if the binning was successful.
 
-Were you able to achieve the target model performance?
+Use pd.get_dummies() to encode categorical variables.
 
-•	The model achieved approximately 73% accuracy, falling short of the 75% target.
+Split the preprocessed data into a features array, X, and a target array, y. Use these arrays and the train_test_split function to split the data into training and testing datasets.
 
-What steps did you take in your attempts to increase model performance?
+Scale the training and testing features datasets by creating a StandardScaler instance, fitting it to the training data, then using the transform function.
 
-•	Increased the number of hidden layers.
-•	Adjusted the number of neurons in each layer.
-•	Tested different activation functions (ReLU, Tanh, etc.).
-•	Conducted feature selection and removal of irrelevant columns.
+Step 2: Compile, Train, and Evaluate the Model Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
 
-# Summary of Results
+Continue using the file in Google Colab in which you performed the preprocessing steps from Step 1.
 
-The deep learning model achieved a respectable accuracy of around 73% in predicting the success of funding applications. While this is below the 75% target, it demonstrates the model's capability to learn and make predictions based on the provided features. Further optimization through hyperparameter tuning and feature engineering could potentially improve the accuracy.
+Create a neural network model by assigning the number of input features and nodes for each layer using TensorFlow and Keras.
 
-Using a Different Model Approach
+Create the first hidden layer and choose an appropriate activation function.
 
-To potentially solve the same classification problem of predicting funding success, a different model approach could be considered:
-Random Forest Classifier
+If necessary, add a second hidden layer with an appropriate activation function.
 
-Why Random Forest?
+Create an output layer with an appropriate activation function.
 
-•	Random Forests are robust against overfitting and can handle large datasets with many features.
+Check the structure of the model.
 
-•	They can capture complex relationships between features and target variable due to the ensemble of decision trees.
+Compile and train the model.
 
-•	Feature importance can be easily extracted, aiding in understanding which variables are most influential in predicting funding success.
+Create a callback that saves the model's weights every five epochs.
 
-# Implementation Strategy:
+Evaluate the model using the test data to determine the loss and accuracy.
 
-•Preprocess data similarly, ensuring all features are relevant.
+Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity.h5.
 
-•	Train a Random Forest Classifier using default parameters initially.
+Step 3: Optimize the Model Using your knowledge of TensorFlow, optimize your model to achieve a target predictive accuracy higher than 75%.
 
-•	Perform hyperparameter tuning using techniques like grid search or randomized search to optimize model performance.
+Use any or all of the following methods to optimize your model:
 
-•	Evaluate the model's accuracy, precision, recall, and F1-score to ensure it meets or exceeds the desired performance metrics.
+Adjust the input data to ensure that no variables or outliers are causing confusion in the model, such as: Dropping more or fewer columns. Creating more bins for rare occurrences in columns. Increasing or decreasing the number of values for each bin. Add more neurons to a hidden layer. Add more hidden layers. Use different activation functions for the hidden layers. Add or reduce the number of epochs to the training regimen. Note: If you make at least three attempts at optimizing your model, you will not lose points if your model does not achieve target performance.
 
-# Conclusion: 
+Create a new Google Colab file and name it AlphabetSoupCharity_Optimization.ipynb.
 
-By employing a Random Forest Classifier, Alphabet Soup could potentially improve prediction accuracy beyond the 73% achieved with the deep learning model. This approach leverages the strengths of ensemble learning and can provide insights into feature importance, aiding in better decision-making regarding funding applications.
+Import your dependencies and read in the charity_data.csv to a Pandas DataFrame.
+
+Preprocess the dataset as you did in Step 1. Be sure to adjust for any modifications that came out of optimizing the model.
+
+Design a neural network model, and be sure to adjust for modifications that will optimize the model to achieve higher than 75% accuracy.
+
+Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity_Optimization.h5.
+
+
 
